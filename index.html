@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PlayAloud </title>
+    <!-- Removed first Font Awesome stylesheet as per instructions -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="PlayAloud/PlayAloudLogo.png">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=notifications" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body background="./covers1/background.avif">
+
+    <!-- Top Navbar -->
+    <nav class="navbar">
+        <div class="brand">
+            <img src="PlayAloud.png" alt="PlayAloud">
+            <span>PlayAloud</span>
+        </div>
+
+        
+            <form class="searchBar">
+                <input id="searchInput" type="text" placeholder="Search Songs, Albums">
+            </form>
+        
+
+        <div class="top-icons">
+            <i class="fa-solid fa-plus"></i>
+            <i class="fa-regular fa-bell"></i>
+            <i class="fa-solid fa-moon" id="themeToggle" title="Toggle Theme"></i>
+            <i class="fa-regular fa-user"></i>
+        </div>
+    </nav>
+
+    <!-- Main Layout -->
+    <div class="container">
+
+        <!-- Left Sidebar -->
+        <aside class="sidebar">
+
+            <button id="likedSongsBtn">❤️ Liked Songs</button>
+            <button id="playlistBtn">📂 Playlists</button>
+            <button id="downloadsBtn">⬇️ Downloads</button>
+
+            <h3>Your Mood</h3>
+
+            <button>😊 Feel Good</button>
+            <button>❤️ Romance</button>
+            <button>🎉 Party</button>
+            <button>💪 Workout</button>
+            <button>😴 Sleep</button>
+
+        </aside>
+
+        <!-- Right Content -->
+        <main class="content">
+
+            <section id="favoritesSection" style="display:none;">
+                <h2>❤️ Liked Songs</h2>
+                <input type="text" id="favoritesSearch" placeholder="Search favorites...">
+                <div id="favoritesList"></div>
+            </section>
+
+            <section id="downloadsSection" style="display:none;">
+                <h2>⬇️ Downloads</h2>
+                <button id="backDownloadsBtn">← Back to Home</button>
+                <div id="downloadsList"></div>
+            </section>
+
+            <section id="playlistSection" style="display:none;">
+                <button id="backPlaylistBtn">← Back to Home</button>
+
+                <h2>📂 Your Playlists</h2>
+
+                <button id="createPlaylistBtn">
+                    <i class="fa-solid fa-plus"></i>
+                    Create Playlist
+                </button>
+
+                <div id="playlistList"></div>
+            </section>
+
+            <section id="playlistSongsSection" style="display:none;">
+                <h2 id="playlistSongsTitle"></h2>
+                <div id="playlistSongs"></div>
+            </section>
+
+            <section>
+                <h2>Hot Artists</h2>
+                 
+                <div class="song-card" data-title="Zayn">
+                    <img src="./covers1/1.jpeg" class="artist" data-song="./audio/1.mp3" data-title="Zayn">
+                    <i class="fa-regular fa-heart favorite-btn" title="Add to Favorites"></i>
+                </div>
+                <div class="song-card" data-title="Olivia">
+                    <img src="./covers1/2.jpeg" class="artist" data-song="./audio/2.mp3" data-title="Olivia">
+                    <i class="fa-regular fa-heart favorite-btn" title="Add to Favorites"></i>
+                </div>
+                <div class="song-card" data-title="Enrique">
+                    <img src="./covers1/3.jpeg" class="artist" data-song="./audio/3.mp3" data-title="Enrique">
+                    <i class="fa-regular fa-heart favorite-btn" title="Add to Favorites"></i>
+                </div>
+                <div class="song-card" data-title="Sean">
+                    <img src="./covers1/4.jpeg" class="artist" data-song="./audio/4.mp3" data-title="Sean">
+                    <i class="fa-regular fa-heart favorite-btn" title="Add to Favorites"></i>
+                </div>
+                <div class="song-card" data-title="Sia">
+                    <img src="./covers1/5.jpeg" class="artist" data-song="./audio/5.mp3" data-title="Sia">
+                    <i class="fa-regular fa-heart favorite-btn" title="Add to Favorites"></i>
+                </div>
+            </section>
+
+            <section>
+                <h2>Made For You</h2>
+                <div class="song-card" data-title="21 pilots">
+                    <img src="./covers1/6.jpeg" class="artist" data-song="./audio/6.mp3" data-title="21 pilots">
+                    <i class="fa-regular fa-heart favorite-btn" title="Add to Favorites"></i>
+                </div>
+                <div class="song-card" data-title="CNCO">
+                    <img src="./covers1/7.jpeg" class="artist" data-song="./audio/7.mp3" data-title="CNCO">
+                    <i class="fa-regular fa-heart favorite-btn" title="Add to Favorites"></i>
+                </div>
+                <div class="song-card" data-title="Sidhu Moosewala">
+                    <img src="./covers1/8.jpeg" class="artist" data-song="./audio/8.mp3" data-title="Sidhu Moosewala">
+                    <i class="fa-regular fa-heart favorite-btn" title="Add to Favorites"></i>
+                </div>
+                <div class="song-card" data-title="Retro-Music">
+                    <img src="./covers1/9.jpeg" class="artist" data-song="./audio/9.mp3" data-title="Retro-Music">
+                    <i class="fa-regular fa-heart favorite-btn" title="Add to Favorites"></i>
+                </div>
+                <div class="song-card" data-title="Motown-Classics">
+                    <img src="./covers1/10.jpeg" class="artist" data-song="./audio/10.mp3" data-title="Motown-Classics">
+                    <i class="fa-regular fa-heart favorite-btn" title="Add to Favorites"></i>
+                </div>
+            </section>
+
+            <section>
+                <h2>Your Daily Discover</h2>
+                <div class="song-card" data-title="Halsey">
+                    <img src="./covers1/11.jpeg" class="artist" data-song="./audio/11.mp3" data-title="Halsey">
+                    <i class="fa-regular fa-heart favorite-btn" title="Add to Favorites"></i>
+                </div>
+                <div class="song-card" data-title="Arijit Singh">
+                    <img src="./covers1/12.jpeg" class="artist" data-song="./audio/12.mp3" data-title="Arijit Singh">
+                    <i class="fa-regular fa-heart favorite-btn" title="Add to Favorites"></i>
+                </div>
+                <div class="song-card" data-title="Faydee">
+                    <img src="./covers1/13.jpeg" class="artist" data-song="./audio/13.mp3" data-title="Faydee">
+                    <i class="fa-regular fa-heart favorite-btn" title="Add to Favorites"></i>
+                </div>
+                <div class="song-card" data-title="Conor">
+                    <img src="./covers1/14.jpeg" class="artist" data-song="./audio/14.mp3" data-title="Conor ">
+                    <i class="fa-regular fa-heart favorite-btn" title="Add to Favorites"></i>
+                </div>
+                <div class="song-card" data-title="The Lana Del Ray">
+                    <img src="./covers1/15.jpeg" class="artist" data-song="./audio/15.mp3" data-title="The Lana Del Ray">
+                    <i class="fa-regular fa-heart favorite-btn" title="Add to Favorites"></i>
+                </div>
+            </section>
+        </main>
+
+    </div>
+    <!-- Bottom Music Player -->
+    <footer class="player glass-player">
+
+        <div class="player-left">
+            <img id="currentCover" src="./covers1/1.jpeg" alt="Now Playing">
+
+            <div class="song-info">
+                <span id="songTitle">No song playing</span>
+                <img id="playingGif" src="./covers1/music-guitar.webp" alt="Playing" style="display:none;">
+            </div>
+
+            <i class="fa-regular fa-heart" id="playerFavoriteBtn" title="Favorite"></i>
+        </div>
+
+        <div class="player-center">
+            <div class="controls">
+                <i class="fa-solid fa-backward-step" id="prevBtn"></i>
+                <i class="fa-solid fa-play" id="playBtn"></i>
+                <i class="fa-solid fa-pause" id="pauseBtn"></i>
+                <i class="fa-solid fa-forward-step" id="nextBtn"></i>
+            </div>
+            <div class="progress-container">
+                <span id="currentTime">0:00</span>
+                <input type="range" id="progress" value="0" min="0" max="100">
+                <span id="totalTime">0:00</span>
+            </div>
+        </div>
+
+        <div class="player-right">
+            <i class="fa-solid fa-volume-high" id="muteBtn" title="Mute / Unmute"></i>
+            <input type="range" id="volume" min="0" max="1" step="0.01" value="1">
+            <span id="volumePercent">100%</span>
+            <i class="fa-solid fa-repeat"></i>
+            <i class="fa-solid fa-shuffle"></i>
+            <i class="fa-solid fa-caret-up" id="queueToggle" title="Song Queue"></i>
+        </div>
+
+        <div id="queuePanel" class="queue-panel">
+
+    
+</div>
+
+    </footer>
+
+    <audio id="audioPlayer"></audio>
+    <script src="logic.js"></script>
+
+</body>
+</html>
