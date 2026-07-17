@@ -80,6 +80,7 @@ document.querySelectorAll('.favorite-btn').forEach((btn, index) => {
 shuffleBtn.addEventListener('click', () => {
     shuffleMode = !shuffleMode;
     shuffleBtn.style.color = shuffleMode ? '#1DB954' : 'white';
+    renderQueue();
 });
 
 queueToggle?.addEventListener("click", () => {
@@ -94,6 +95,7 @@ closeQueue?.addEventListener("click", () => {
 repeatBtn.addEventListener('click', () => {
     repeatMode = !repeatMode;
     repeatBtn.style.color = repeatMode ? '#1DB954' : 'white';
+    renderQueue();
 });
 
 function saveFavorites() {
@@ -203,49 +205,38 @@ function renderFavorites(filter = '') {
 }
 
 function renderQueue() {
-
     if (!queuePanel || !queueCurrentSong || !queueList) return;
 
-    queueCurrentSong.textContent = artists[currentIndex].dataset.title;
-
+    queueCurrentSong.textContent = `▶ ${artists[currentIndex].dataset.title}`;
     queueList.innerHTML = "";
 
     let order = [];
 
     if (shuffleMode) {
-
         order = [...Array(songs.length).keys()]
             .filter(i => i !== currentIndex)
             .sort(() => Math.random() - 0.5);
-
     } else {
-
         for (let i = 1; i < songs.length; i++) {
             order.push((currentIndex + i) % songs.length);
         }
-
     }
 
     order.forEach(index => {
-
         const row = document.createElement("div");
         row.className = "queue-item";
-        row.textContent = artists[index].dataset.title;
+        row.innerHTML = `<span>${artists[index].dataset.title}</span>`;
 
         row.addEventListener("click", () => {
-
             currentIndex = index;
             loadSong(currentIndex);
             player.play();
             updatePlayerButtons();
             queuePanel.classList.remove("open");
-
         });
 
         queueList.appendChild(row);
-
     });
-
 }
 
 
